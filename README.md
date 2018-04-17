@@ -24,3 +24,8 @@ Steps:
     - PCA/t-SNE down into lower dimensional space for plotting and review
 2. Use M* categories as clusters
 3. Research clustering methods to determine most appropriate for this problem
+
+
+# Resources
+- dtw module https://github.com/pierre-rouanet/dtw
+    ```python -m pip install dtw```
