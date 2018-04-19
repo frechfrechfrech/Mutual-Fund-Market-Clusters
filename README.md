@@ -6,11 +6,17 @@
     - How can I segment my clients into groups so that my wholesalers can tailor their sales strategy for each client?
         Cluster on Broker Dealer
     - Can you help me figure out which mutual funds I can compete with outside of the Morningstar Category that my fund falls into?
+![](http://i.imgur.com/OUkLi.gif)
 
-    ![](https://media.giphy.com/media/l1J9R1Q7LJGSZOxFe/giphy.gif)
+
 
 2. Data
     - sales data for broker dealer, zip, and cusip combinations going back monthly 2 years.
+    
+    
+![](http://media.giphy.com/media/l1J9R1Q7LJGSZOxFe/giphy.gif)
+
+
 3. Approach
     - I intend to address both questions with clustering. My features will be quarterly sales for the rolling 2 years, by bd+zip for the first question and by fund for the second. The features will be correlated because this is time series data. I will try using PCA/tsne to project onto lower-dimensions. If that doesn’t prove successful, I will attempt go down the road
 of time series analysis.
