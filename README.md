@@ -1,27 +1,25 @@
 # Put the FUN in Mutual Funds
 
-1. Research Questions
-
-    Our clients often ask the following two questions:
-    - How can I segment my clients into groups so that my wholesalers can tailor their sales strategy for each client?
-        Cluster on Broker Dealer
-    - Can you help me figure out which mutual funds I can compete with outside of the Morningstar Category that my fund falls into?
-![](https://media.giphy.com/media/zcVOyJBHYZvX2/giphy.gif)
-
-2. Data
-    - 
-    - sales data for broker dealer, zip, and cusip combinations going back monthly 2 years.
+# Research Questions
+  
+  ### 1. Can we segment broker dealer offices into groups with similar buying behavior?
+        - Motivation: I, asset manager x, can better arm my salesforce to pursue opportunities if we have targeted strategies for each segment of the market.
+  ### 2. Can we group open-end mutual funds based on sales patterns in the last 2 years?
+        - Motivation: If I, asset manager x, can find funds similar to my own which are not currently captured by Morningstra Category relationships, I can target those funds for competition.
 
 
+2. Data: Open End Mutual Fund Sales aka What was sold, when, and where?
+    - When: Monthly aggregates January 2016 - January 2017
+    - Where: Broker Dealer Locations
+    - What: CUSIP, Fund ID, Morningstar Category
 
-3. Approach
-    - I intend to address both questions with clustering. My features will be quarterly sales for the rolling 2 years, by bd+zip for the first question and by fund for the second. The features will be correlated because this is time series data. I will try using PCA/tsne to project onto lower-dimensions. If that doesn’t prove successful, I will attempt go down the road
-of time series analysis.
-4. MVP
-    - Client segmentation will be to segment Ameriprise bd+zip combos into groups with similar buying habits.
-        - We know that there are at least two distinct groups within Ameriprise offices (private wealth offices which manage investments for high net worth individuals and regular offices for regular people), my goal would be to either further segment the offices or show that there is no futher meaningful clustering.
-    - Fund grouping: create alternate groups of funds within the Equity broad morningstar category based on the rolling 2 years sales data. I will compare these to current Morningstar categorization, which are based on investment strategy, to find the funds that wouldn’t have been captured by the traditional M* categorization.
+----
 
+# Fund Mapping
+- Features are time series so they are correlated
+
+
+![alt_text](https://media.giphy.com/media/zcVOyJBHYZvX2/giphy.gif "ugh")
 
 Steps:
 1. Process data + feature engineer to isolate signal that we care about:
