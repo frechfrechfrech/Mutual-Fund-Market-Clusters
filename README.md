@@ -3,9 +3,12 @@
 # Research Questions
   
   ### 1. Can we segment broker dealer offices into groups with similar buying behavior?
-        - Motivation: I, asset manager x, can better arm my salesforce to pursue opportunities if we have targeted strategies for each segment of the market.
+  
+    Motivation: I, asset manager x, can better arm my salesforce to pursue opportunities if we have targeted strategies for each segment of the market.
+    
   ### 2. Can we group open-end mutual funds based on sales patterns in the last 2 years?
-        - Motivation: If I, asset manager x, can find funds similar to my own which are not currently captured by Morningstra Category relationships, I can target those funds for competition.
+  
+    Motivation: If I, asset manager x, can find funds similar to my own which are not currently captured by Morningstra Category relationships, I can target those funds for competition.
 
 
 2. Data: Open End Mutual Fund Sales aka What was sold, when, and where?
