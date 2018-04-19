@@ -1,4 +1,4 @@
-# Mutual-Fund-Market-Clusters
+# Put the FUN in Mutual Funds
 
 1. Research Questions
 
