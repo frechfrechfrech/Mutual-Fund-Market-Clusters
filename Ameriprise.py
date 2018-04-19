@@ -87,9 +87,68 @@ from src.Clustering import Clustering
 # row_headers = ['BROKER_NAME', 'FDS_BROKER_ID']
 # column_headers = ['BROAD_FUND_CATEGORY']
 # df_bd_broad = munge_bd_broad.transform(df_inc_red, row_headers, column_headers)
+# df_bd_broad.to_pickle('data/df_bd_broad.pkl')
+
+# df_bd_broad = pd.read_pickle('data/df_bd_broad.pkl')
+#
+# c_bd_broad = Clustering(df_bd_broad.iloc[:,:-1]) # initialize clustering class
+# # calculate and store dimension reductions
+# c_bd_broad._PCA()
+# c_bd_broad._TSNE()
+# # # plot dimension reductions
+# # c.plotPCA()
+# # c.plotTSNE()
+# # KMeans
+# c_bd_broad._kmeans()
+# c_bd_broad.plot_kmeans()
+
+
+'''Try it with BD+cat'''
+
+# filepath = 'data/ALL_CLIENTS_Q417only_cat_bd_zip_redemptions_20180417.txt'
+# df_inc_red = pd.read_csv(filepath, sep='\t')
+# munge_bd_cat = MungeData()
+# row_headers = ['BROKER_NAME', 'FDS_BROKER_ID']
+# column_headers = ['FUND_CATEGORY']
+# df_bd_cat = munge_bd_cat.transform(df_inc_red, row_headers, column_headers, filepath_to_save= 'data/df_bd_cat.pkl')
+
+# df_bd_cat = pd.read_pickle('data/df_bd_cat.pkl')
+#
+# c_bd_broad = Clustering(df_bd_broad.iloc[:,:-1]) # initialize clustering class
+# # calculate and store dimension reductions
+# c_bd_broad._PCA()
+# c_bd_broad._TSNE()
+# # # plot dimension reductions
+# # c.plotPCA()
+# # c.plotTSNE()
+# # KMeans
+# c_bd_broad._kmeans()
+# c_bd_broad.plot_kmeans()
 
 
 
+
+'''Try it with BD+cat+scaled office total'''
+
+# filepath = 'data/ALL_CLIENTS_Q417only_cat_bd_zip_redemptions_20180417.txt'
+# df_inc_red = pd.read_csv(filepath, sep='\t')
+# munge_bd_cat = MungeData()
+# row_headers = ['BROKER_NAME', 'FDS_BROKER_ID']
+# column_headers = ['FUND_CATEGORY']
+# df_bd_cat = munge_bd_cat.transform(df_inc_red, row_headers, column_headers, filepath_to_save= 'data/df_bd_cat.pkl')
+
+# df_bd_cat = pd.read_pickle('data/df_bd_cat.pkl')
+#
+c_bd_broad = Clustering(df_bd_broad.iloc[:,:-1]) # initialize clustering class
+# calculate and store dimension reductions
+c_bd_broad._PCA()
+c_bd_broad._TSNE()
+# # plot dimension reductions
+# c.plotPCA()
+# c.plotTSNE()
+# KMeans
+c_bd_broad._kmeans()
+c_bd_broad.plot_kmeans()
 
 
 '''Not going to use DBscan because it seems like the observations are not actually separated'''
