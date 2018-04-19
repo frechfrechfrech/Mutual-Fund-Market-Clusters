@@ -6,8 +6,9 @@
     - How can I segment my clients into groups so that my wholesalers can tailor their sales strategy for each client?
         Cluster on Broker Dealer
     - Can you help me figure out which mutual funds I can compete with outside of the Morningstar Category that my fund falls into?
-    
-    ![alt text](https://media.giphy.com/media/l1J9R1Q7LJGSZOxFe/giphy.gif)
+
+    ![](https://media.giphy.com/media/l1J9R1Q7LJGSZOxFe/giphy.gif)
+
 2. Data
     - sales data for broker dealer, zip, and cusip combinations going back monthly 2 years.
 3. Approach
