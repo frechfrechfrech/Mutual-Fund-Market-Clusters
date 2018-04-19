@@ -26,6 +26,27 @@ Steps:
 3. Research clustering methods to determine most appropriate for this problem
 
 
+Results (so far):
+
+Fund Clustering by Rolling 24M sales:
+
+![alt text](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/fundid_pca_scree.png "PCA Scree")
+
+![alt text](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/dendrogram_allocation.png)
+
+![alt text](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/dendrogram_taxpreferred.png)
+
+
+
+Broker Dealer Locaiton Clustering broad category proportions of most recent quarter sales:
+
+![alt text](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/amp_pca_kmeans.png)
+
+![alt text](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/amp_tsne_kmeans.png)
+
+
+
+
 # Resources
 - dtw module https://github.com/pierre-rouanet/dtw
     ```python -m pip install dtw```
