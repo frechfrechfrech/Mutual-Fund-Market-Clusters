@@ -38,16 +38,21 @@ Examples:
     Dynamic Time Warp for sin vs sin*2: 0.28
     Dynamic Time Warp for sin vs sin+2: 1.0
 
+![alt_text](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/images/dtw_illustrated.jpeg)
 
 
 ### Hierarchical Clustering
 
 Well-suited to situations where want to understand the relationships within clusters. For example, within this cluster, which funds are the most similar? Are there any funds that are total snowflakes?
 
-![alt_text](link_to_dendrogram)
-
+![alt_text](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/images/dendrogram_allocation.png)
 
 ![alt_text](https://media.giphy.com/media/zcVOyJBHYZvX2/giphy.gif "ugh")
+
+Interpretation:
+  - Most funds are pretty similar by this metric
+  - There are some funds that are definite outliers - really far away from the rest of the pack. 
+
 
 ---
 
@@ -87,6 +92,16 @@ Results (so far):
 Broker Dealer Locaiton Clustering broad category proportions of most recent quarter sales:
 
 
+# Continued Exploration:
+
+### FundID
+- Scale the fundid data to make all time series the same magnitude.
+- Add in redemptions and returns features.
+- Feature engineer a "target" to represent which funds actually do sell together at the same location or unseat one another.
+
+### Broker Dealer + Broker Dealer Offices
+- Broker Dealer + Category clusters.
+- Build deep neural net to predict sales into a category for the next month/quarter.
 
 
 # Resources
