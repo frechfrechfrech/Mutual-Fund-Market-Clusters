@@ -1,16 +1,17 @@
 # Put the FUN in Mutual Funds
 
 ## Research Questions
+
+  ### 1. Can we group open-end mutual funds based on sales patterns in the last 2 years?
+ **Motivation**: If I, asset manager x, can find funds similar to my own which are not currently captured by Morningstar Category relationships, I can target those funds for competition.
   
-  ### 1. Can we segment broker dealer offices into groups with similar buying behavior?
+  ### 2. Can we segment broker dealer offices into groups with similar buying behavior?
   **Motivation**: I, asset manager x, can better arm my salesforce to pursue opportunities if we have targeted strategies for each segment of the market.
     
-  ### 2. Can we group open-end mutual funds based on sales patterns in the last 2 years?
- **Motivation**: If I, asset manager x, can find funds similar to my own which are not currently captured by Morningstra Category relationships, I can target those funds for competition.
 
 
 ## Data: Open End Mutual Fund Sales aka What was sold, when, and where?
-  - **When**: Monthly aggregates January 2016 - January 2017
+  - **When**: Monthly aggregates January 2016 - December 2017
   - **Where**: Broker Dealer Locations
   - **What**: CUSIP, Fund ID, Morningstar Category
 
@@ -19,8 +20,9 @@
 # Fund Clustering
 
 ### Time Series
-- Features are time series so they are correlated
-- What we're really interested in is: how closely do the sales movements of these funds align? So this is a great problem for the distance metric dynamic time warp.
+- **Hypothesis: funds that are similar have similar sales patterns.**
+- Data: *monthly* sales into each FundID in the rolling 24 months
+- Distance Metric: We want to know how closely the sales movements of these funds align. Dynamic Time warp can help us measure this.
 
 ### Dynamic Time Warp
 
@@ -57,6 +59,11 @@ Interpretation:
 
 # Broker Dealer Clustering
 
+- **Hypothesis: funds that are similar have similar sales patterns.**
+- Data: Proportion of sales into each broad category within the broker dealer or broker dealer location
+  - Included normed broker dealer size for the broker-dealer level analysis because size is a meaningful differentiator for sales opportunity.
+- Distance Metric: We want to know how closely the sales movements of these funds align. Dynamic Time warp can help us measure this.
+
 ### Broker Dealer Office Clustering by Broad Category
 
 #### Ameriprise
@@ -89,7 +96,7 @@ Clusters overlayed on TSNE
 
 **Broker Dealer Cluster Centroids**
 
-| Allocation | Alternative | Commodities | Convertibles | Equity | Fixed Income | Tax Preferred | Office Size vs Largest | 
+| Allocation | Alternative | Commodities | Convertibles | Equity | Fixed Income | Tax Preferred | BD Size vs Largest | 
 | --- | --- | --- | --- | --- | --- | --- |--- |
 | **45%**        | 0%          | 0%          | 0%           | **36%**    | 13%          | 5%            | 0%    | 
 | 8%         | 6%          | 1%          | 0%           | 19%    | 17%          | **48%**        | 0%                     | 
