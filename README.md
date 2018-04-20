@@ -21,8 +21,8 @@
 
 ### Time Series
 - **Hypothesis: funds that are similar have similar sales patterns.**
-- Data: *monthly* sales into each FundID in the rolling 24 months
-- Distance Metric: We want to know how closely the sales movements of these funds align. Dynamic Time warp can help us measure this.
+- **Data**: *monthly* sales into each FundID in the rolling 24 months
+- **Distance Metric**: We want to know how closely the sales movements of these funds align. Dynamic Time warp can help us measure this.
 
 ### Dynamic Time Warp
 
@@ -60,9 +60,8 @@ Interpretation:
 # Broker Dealer Clustering
 
 - **Hypothesis: funds that are similar have similar sales patterns.**
-- Data: Proportion of sales into each broad category within the broker dealer or broker dealer location
+- **Data**: Proportion of sales into each broad category within the broker dealer or broker dealer location
   - Included normed broker dealer size for the broker-dealer level analysis because size is a meaningful differentiator for sales opportunity.
-- Distance Metric: We want to know how closely the sales movements of these funds align. Dynamic Time warp can help us measure this.
 
 ### Broker Dealer Office Clustering by Broad Category
 
@@ -103,7 +102,7 @@ Clusters overlayed on TSNE
 | 12%        | 0%          | 0%          | 0%           | **72%**    | 11%          | 4%            | 0%             | 
 | 9%         | 1%          | 0%          | 0%           | 14%    | 72%          | 5%            | 0%                     | 
 | 17%        | 2%          | 0%          | 0%        | **42%**   | **32%**      | 7%            | **1%**              | 
-| 11%        | 2%          | 0%          | 0%           |**36%**   | 40%          | 10%           | **68%**              | 
+| 11%        | 2%          | 0%          | 0%           |**36%**   | **40%**        | 10%           | **68%**              | 
 
 
 
