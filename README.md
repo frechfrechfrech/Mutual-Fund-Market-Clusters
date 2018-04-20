@@ -1,6 +1,6 @@
 # Put the FUN in Mutual Funds
 
-# Research Questions
+## Research Questions
   
   ### 1. Can we segment broker dealer offices into groups with similar buying behavior?
   **Motivation**: I, asset manager x, can better arm my salesforce to pursue opportunities if we have targeted strategies for each segment of the market.
@@ -9,7 +9,7 @@
  **Motivation**: If I, asset manager x, can find funds similar to my own which are not currently captured by Morningstra Category relationships, I can target those funds for competition.
 
 
-# Data: Open End Mutual Fund Sales aka What was sold, when, and where?
+## Data: Open End Mutual Fund Sales aka What was sold, when, and where?
   - **When**: Monthly aggregates January 2016 - January 2017
   - **Where**: Broker Dealer Locations
   - **What**: CUSIP, Fund ID, Morningstar Category
@@ -20,7 +20,6 @@
 
 ### Time Series
 - Features are time series so they are correlated
-(insert heatmap of correlation)
 - What we're really interested in is: how closely do the sales movements of these funds align? So this is a great problem for the distance metric dynamic time warp.
 
 ### Dynamic Time Warp
@@ -57,8 +56,6 @@ Interpretation:
 ---
 
 # Broker Dealer Clustering
-
-- Wrote a class to make 
 
 ### Broker Dealer Office Clustering by Broad Category
 
@@ -103,8 +100,6 @@ Clusters overlayed on TSNE
 
 
 
-
-
 # Continued Exploration:
 
 ### FundID
@@ -114,7 +109,7 @@ Clusters overlayed on TSNE
 
 ### Broker Dealer + Broker Dealer Offices
 - Try category instead of broad category.
-- Build deep neural net to predict sales into a category for the next month/quarter.
+- Build deep neural net to predict sales into categories within each broker dealer office for the next month/quarter.
 
 
 # Resources
