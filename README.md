@@ -16,8 +16,24 @@
 
 ----
 
-# Fund Mapping
+# Fund Clustering
+
+### Time Series
 - Features are time series so they are correlated
+(insert heatmap of correlation)
+- Poential 
+
+### Dynamic Time Warp
+
+insert giphy dynamic time warp
+
+![alt_text](https://imgur.com/gallery/Qjpee)
+
+### Hierarchical Clustering
+
+Well-suited to situations where want to understand the relationships within clusters. For example, within this cluster, which funds are the most similar? Are there any funds that are total snowflakes?
+
+![alt_text](link_to_dendrogram)
 
 
 ![alt_text](https://media.giphy.com/media/zcVOyJBHYZvX2/giphy.gif "ugh")
