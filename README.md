@@ -58,12 +58,14 @@ Interpretation:
 
 # Broker Dealer Clustering
 
-### Broker Dealer Office Clustering
+- Wrote a class to make 
 
-## Ameriprise
+### Broker Dealer Office Clustering by Broad Category
+
+#### Ameriprise
 ![](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/images/amp_pca_kmeans.png)
 
-**Cluster Centroids**
+**Ameriprise Cluster Centroids**
 
 Allocation | Alternative	| Commodities	| Convertibles |	Equity  | Fixed Income	| Tax Preferred 
 --- | --- | --- | --- | --- | --- | --- 
@@ -72,18 +74,25 @@ Allocation | Alternative	| Commodities	| Convertibles |	Equity  | Fixed Income	|
 29%	|6%	|0%	|0%	|27%	|25%	|12%
 
 
-
-Steps:
-1. Process data + feature engineer to isolate signal that we care about:
-    - feature engineering
-        - mitigate time series element
-        - experiment with ways to deal with massive differences in scale between fund sales
-    - PCA/t-SNE down into lower dimensional space for plotting and review
-2. Use M* categories as clusters
-3. Research clustering methods to determine most appropriate for this problem
+### Broker Dealer Clustering by Broad Category
 
 
-Results (so far):
+![alt_text]()
+
+**Broker Dealer Cluster Centroids**
+
+
+
+
+| Allocation | Alternative | Commodities | Convertibles | Equity | Fixed Income | Tax Preferred | Office Size vs Largest | 
+| --- | --- | --- | --- | --- | --- | --- |--- |
+| **45%**        | 0%          | 0%          | 0%           | **36%**    | 13%          | 5%            | 0%    | 
+| 8%         | 6%          | 1%          | 0%           | 19%    | 17%          | **48%**        | 0%                     | 
+| 12%        | 0%          | 0%          | 0%           | **72%**    | 11%          | 4%            | 0%             | 
+| 9%         | 1%          | 0%          | 0%           | 14%    | 72%          | 5%            | 0%                     | 
+| 17%        | 2%          | 0%          | 0%        | **42%**   | **32%**      | 7%            | **1%**              | 
+| 11%        | 2%          | 0%          | 0%           |**36%**   | 40%          | 10%           | **68%**              | 
+
 
 
 
