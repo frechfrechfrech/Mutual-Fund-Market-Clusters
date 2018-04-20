@@ -36,6 +36,26 @@ Well-suited to situations where want to understand the relationships within clus
 
 ![alt_text](https://media.giphy.com/media/zcVOyJBHYZvX2/giphy.gif "ugh")
 
+---
+
+# Broker Dealer Clustering
+
+### Broker Dealer Office Clustering
+
+## Ameriprise
+
+KMeans
+![](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/images/amp_pca_kmeans.png)
+
+
+Allocation | Alternative	| Commodities	| Convertibles |	Equity  | Fixed Income	| Tax Preferred 
+--- | --- | --- | --- | --- | --- | --- 
+7%	|3%	|0%	|0%	|28%	|**56%**	|6%
+8%	|3%	|0%	|0%	|**56%**	|27%|	6%
+29%	|6%	|0%	|0%	|27%	|25%	|12%
+
+
+
 Steps:
 1. Process data + feature engineer to isolate signal that we care about:
     - feature engineering
@@ -48,21 +68,11 @@ Steps:
 
 Results (so far):
 
-Fund Clustering by Rolling 24M sales:
 
-![alt text](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/fundid_pca_scree.png "PCA Scree")
-
-![alt text](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/dendrogram_allocation.png)
-
-![alt text](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/dendrogram_taxpreferred.png)
 
 
 
 Broker Dealer Locaiton Clustering broad category proportions of most recent quarter sales:
-
-![alt text](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/amp_pca_kmeans.png)
-
-![alt text](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/amp_tsne_kmeans.png)
 
 
 
