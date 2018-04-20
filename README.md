@@ -76,8 +76,18 @@ Allocation | Alternative	| Commodities	| Convertibles |	Equity  | Fixed Income	|
 
 ### Broker Dealer Clustering by Broad Category
 
+Clusters overlayed on PCA
 
-![alt_text]()
+
+![](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/images/bd_broad_inc_size_pca_kmeans.png)
+
+
+Clusters overlayed on TSNE
+
+
+![](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/images/bd_broad_inc_size_tsne_kmeans.png)
+
+
 
 **Broker Dealer Cluster Centroids**
 
