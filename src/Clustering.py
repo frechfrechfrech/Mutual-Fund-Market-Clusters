@@ -15,6 +15,7 @@ class Clustering(object):
 
     def __init__(self, df):
         self.df = df
+        self.df_original = df.copy()
         self.num_values = self.df._get_numeric_data().values # features
         self.df_tsne = pd.DataFrame([]) # contains values of tsne decomp for each observation
         self.df_pca = pd.DataFrame([]) # contains values of PCA decomp for each observation
@@ -71,7 +72,7 @@ class Clustering(object):
         self.df_tsne[cluster_label_name] = kmeans.labels_
         self.df_pca[cluster_label_name] = kmeans.labels_
         self.df[cluster_label_name] = kmeans.labels_
-        self.k_cluster_centers = kmeans.cluster_centers_
+        self.k_cluster_centers[dim_red] = kmeans.cluster_centers_
 
 
     def plot_kmeans(self, dim_red = 'raw'):
@@ -84,18 +85,31 @@ class Clustering(object):
         sns.lmplot(x='pca_one', y ='pca_two', hue= cluster_label_name, data = self.df_pca , fit_reg=False, legend=False)
         plt.show()
 
+    def describe_clusters(self, dim_red = 'raw'):
+        if dim_red == 'raw':
+            feature_names = self.df_original._get_numeric_data().columns
+        elif dim_red == 'tsne':
+            features = self.df_tsne.iloc[:,:2].columns
+        elif dim_red == 'pca':
+            features = self.df_pca.iloc[:,:2].columns
 
-if __name__ == '__main__':
-    df_pivot_pct_all = pd.read_pickle('data/df_pivot_pct_all.pkl')
-    df_amp = df_pivot_pct_all[df_pivot_pct_all['BROKER_NAME']=='AMERIPRISE FINANCIAL SERVICES, INC.']
-    df_amp = df_amp.reset_index()
-    df_amp.drop(['index'],inplace=True, axis=1)
-    c_amp = Clustering(df_amp.iloc[:,:-1]) # initialize clustering class
-    # calculate and store dimension reductions
-    c_amp._PCA()
-    c_amp._TSNE()
-    # KMeans
-    c_amp._kmeans(dim_red='tsne')
-    c_amp._kmeans(dim_red='pca')
-    c_amp._kmeans()
-    c_amp.plot_kmeans(dim_red='tsne')
+        df_clusters_w_labels = pd.DataFrame(data = self.k_cluster_centers[dim_red], columns = feature_names)
+        sorted_indices = np.argsort(-1*df_clusters_w_labels.values, axis=1)
+        sorted_cols = np.array([np.array(df_clusters_w_labels.columns[i]) for i in sorted_indices])
+        df_top3 = pd.DataFrame(data=sorted_cols[:,:3],columns=['1st','2nd','3rd'])
+        return df_clusters_w_labels, df_top3
+
+# if __name__ == '__main__':
+#     df_pivot_pct_all = pd.read_pickle('data/df_pivot_pct_all.pkl')
+#     df_amp = df_pivot_pct_all[df_pivot_pct_all['BROKER_NAME']=='AMERIPRISE FINANCIAL SERVICES, INC.']
+#     df_amp = df_amp.reset_index()
+#     df_amp.drop(['index'],inplace=True, axis=1)
+#     c_amp = Clustering(df_amp.iloc[:,:-1]) # initialize clustering class
+#     # calculate and store dimension reductions
+#     c_amp._PCA()
+#     c_amp._TSNE()
+#     # KMeans
+#     c_amp._kmeans(dim_red='tsne')
+#     c_amp._kmeans(dim_red='pca')
+#     c_amp._kmeans()
+#     c_amp.plot_kmeans(dim_red='tsne')
