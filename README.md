@@ -21,11 +21,24 @@
 ### Time Series
 - Features are time series so they are correlated
 (insert heatmap of correlation)
-- Poential 
+- What we're really interested in is: how closely do the sales movements of these funds align? So this is a great problem for the distance metric dynamic time warp.
 
 ### Dynamic Time Warp
 
 ![](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/images/time_warp.jpg)
+
+Dynamic time warp is an algorithm to measure similarity between two temporal sequences, which may vary in speed.
+
+I used an implementation written by Pierre Rouanet: https://github.com/pierre-rouanet/dtw
+
+Examples:
+
+    Dynamic Time Warp for sin vs sin: 0.0
+    Dynamic Time Warp for sin vs cos: 0.04
+    Dynamic Time Warp for sin vs sin*2: 0.28
+    Dynamic Time Warp for sin vs sin+2: 1.0
+
+
 
 ### Hierarchical Clustering
 
@@ -77,5 +90,5 @@ Broker Dealer Locaiton Clustering broad category proportions of most recent quar
 
 
 # Resources
-- dtw module https://github.com/pierre-rouanet/dtw
+- dtw module by pierre-rouanet https://github.com/pierre-rouanet/dtw
     ```python -m pip install dtw```
