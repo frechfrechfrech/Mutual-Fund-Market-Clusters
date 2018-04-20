@@ -74,6 +74,7 @@ Allocation | Alternative	| Commodities	| Convertibles |	Equity  | Fixed Income	|
 29%	|6%	|0%	|0%	|27%	|25%	|12%
 
 
+
 ### Broker Dealer Clustering by Broad Category
 
 Clusters overlayed on PCA
@@ -91,9 +92,6 @@ Clusters overlayed on TSNE
 
 **Broker Dealer Cluster Centroids**
 
-
-
-
 | Allocation | Alternative | Commodities | Convertibles | Equity | Fixed Income | Tax Preferred | Office Size vs Largest | 
 | --- | --- | --- | --- | --- | --- | --- |--- |
 | **45%**        | 0%          | 0%          | 0%           | **36%**    | 13%          | 5%            | 0%    | 
@@ -107,10 +105,6 @@ Clusters overlayed on TSNE
 
 
 
-
-Broker Dealer Locaiton Clustering broad category proportions of most recent quarter sales:
-
-
 # Continued Exploration:
 
 ### FundID
@@ -119,7 +113,7 @@ Broker Dealer Locaiton Clustering broad category proportions of most recent quar
 - Feature engineer a "target" to represent which funds actually do sell together at the same location or unseat one another.
 
 ### Broker Dealer + Broker Dealer Offices
-- Broker Dealer + Category clusters.
+- Try category instead of broad category.
 - Build deep neural net to predict sales into a category for the next month/quarter.
 
 
