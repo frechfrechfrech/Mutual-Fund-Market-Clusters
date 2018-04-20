@@ -45,7 +45,8 @@ Well-suited to situations where want to understand the relationships within clus
 ## Ameriprise
 ![](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/images/amp_pca_kmeans.png)
 
-Cluster Centroids
+**Cluster Centroids**
+
 Allocation | Alternative	| Commodities	| Convertibles |	Equity  | Fixed Income	| Tax Preferred 
 --- | --- | --- | --- | --- | --- | --- 
 7%	|3%	|0%	|0%	|28%	|**56%**	|6%
