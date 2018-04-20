@@ -17,37 +17,51 @@ from sklearn.preprocessing import MinMaxScaler
 # custom classes
 from src.MungeData import MungeData
 from src.Clustering import Clustering
-
+from src.Correlation_Heatmap import correlation_heatmap
 
 
 # '''read in data and get the bd you care about'''
-# df_pivot_pct_all = pd.read_pickle('data/df_pivot_pct_all.pkl')
+df_pivot_pct_all = pd.read_pickle('data/df_pivot_pct_all.pkl')
 # # list of all BDs in the file
 # df_bd_id = df_pivot_pct_all.loc[:,['FDS_BROKER_ID','BROKER_NAME']].drop_duplicates()
 # # search for a particular BD
 # df_bd_id[df_bd_id['BROKER_NAME'].str.contains('EDWARD', na=False)]
 #
-# #Ameriprise only
-# df_amp = df_pivot_pct_all[df_pivot_pct_all['BROKER_NAME']=='AMERIPRISE FINANCIAL SERVICES, INC.']
-# df_amp = df_amp.reset_index()
-# df_amp.drop(['index'],inplace=True, axis=1)
-# # X=df_amp._get_numeric_data().iloc[:,:-1].values
+#Ameriprise only
+df_amp = df_pivot_pct_all[df_pivot_pct_all['BROKER_NAME']=='AMERIPRISE FINANCIAL SERVICES, INC.']
+df_amp = df_amp.reset_index()
+df_amp.drop(['index'],inplace=True, axis=1)
+# X=df_amp._get_numeric_data().iloc[:,:-1].values
+
+# are my features correlated?
+df=c_amp.df.iloc[:,:-3]
+num = c_amp.df._get_numeric_data().iloc[:,:-3]
+column_names = []
+for i in range(7):
+    column_names.append(num.columns[i].split("'")[3])
+df.columns = ['BROKER_NAME', 'FDS_BROKER_ID', 'ZIP_CODE', 'STREET_ADDRESS', 'STATE',
+       'Allocation','Alternative','Commodities','Convertibles','Equity','Fixed Income','Tax Preferred']
+
+correlation_heatmap(df)
 #
 #
-#
-# '''try the base proportions with the clustering class'''
-# # from clustering import Clustering
+'''try the base proportions with the clustering class'''
+# from clustering import Clustering
 # run clustering.py
-# c_amp = Clustering(df_amp.iloc[:,:-1]) # initialize clustering class
-# # calculate and store dimension reductions
-# c_amp._PCA()
-# c_amp._TSNE()
-# # # plot dimension reductions
-# # c.plotPCA()
-# # c.plotTSNE()
-# # KMeans
-# c_amp._kmeans()
-# c_amp.plot_kmeans()
+c_amp = Clustering(df_amp.iloc[:,:-1]) # initialize clustering class
+# calculate and store dimension reductions
+c_amp._PCA()
+c_amp._TSNE()
+# # plot dimension reductions
+# c.plotPCA()
+# c.plotTSNE()
+# KMeans
+c_amp._kmeans()
+c_amp.plot_kmeans()
+amp_clusters_w_labels, amp_top3 = c_amp.describe_clusters()
+np.round(amp_clusters_w_labels,2)
+
+
 #
 # '''What's in these clusters?'''
 # row_headers = ['kmeans']
@@ -103,6 +117,63 @@ from src.Clustering import Clustering
 # c_bd_broad.plot_kmeans()
 
 
+'''bd_broad + normed size'''
+# df_amp_total_normed = df_amp.copy()
+# scaler = MinMaxScaler()
+# df_amp_total_normed['Total']=scaler.fit_transform(df_amp_total_normed['Total'].values.reshape(-1,1))
+
+df_bd_broad_inc_size= df_bd_broad.copy
+scaler_broad = MinMaxScaler()
+df_bd_broad_inc_size['Total']=scaler.fit_transform(df_bd_broad_inc_size['Total'].values.reshape(-1,1))
+
+c_bd_broad_inc_size = Clustering(df_bd_broad_inc_size) # initialize clustering class
+# calculate and store dimension reductions
+c_bd_broad_inc_size._PCA()
+c_bd_broad_inc_size._TSNE()
+# # plot dimension reductions
+# c.plotPCA()
+# c.plotTSNE()
+# KMeans
+c_bd_broad_inc_size._kmeans()
+c_bd_broad_inc_size.plot_kmeans()
+
+
+
+
+
+
+# Now with tsne values as features
+c_bd_broad_tsne = Clustering(c_bd_broad.df_tsne.iloc[:,:-1])
+c_bd_broad_tsne._kmeans()
+sns.lmplot(x='tsne_one', y ='tsne_two', hue= 'kmeans', data =  c_bd_broad_tsne.df , fit_reg=False, legend=False)
+
+c_amp_tsne = Clustering(c_amp.df_tsne.iloc[:,:-1])
+c_amp_tsne._kmeans()
+sns.lmplot(x='tsne_one', y ='tsne_two', hue= 'kmeans', data =  c_amp_tsne.df , fit_reg=False, legend=False)
+
+
+row_headers = ['kmeans']
+column_headers = ['STATE']
+agg_func = 'count'
+df_amp_cluster_states = pd.pivot_table(c_amp.df, index=row_headers, columns = column_headers, aggfunc = agg_func, fill_value=0)
+
+
+df_amp_cluster_props = pd.DataFrame(data = c_amp.kclusters, columns = c_amp.df._get_numeric_data().iloc[:,:-1].columns)
+df_amp_cluster_props = pd.DataFrame(data = c_amp.k_cluster_centers['tsne'], columns = c_amp.df._get_numeric_data().iloc[:,:-3].columns)
+
+cluster_centers = c_amp.k_cluster_centers['tsne']
+for i in range(clustercenters.shape[0])
+    results = c_amp.df_tsne.iloc[:,:2] == cluster_centers[i]
+
+
+
+features = c_amp.df_tsne.iloc[:,:2]
+kmeans = KMeans(n_clusters = 5, random_state=0).fit(features)
+
+
+
+
+
 '''Try it with BD+cat'''
 
 # filepath = 'data/ALL_CLIENTS_Q417only_cat_bd_zip_redemptions_20180417.txt'
@@ -130,15 +201,6 @@ from src.Clustering import Clustering
 
 '''Try it with BD+cat+scaled office total'''
 
-# filepath = 'data/ALL_CLIENTS_Q417only_cat_bd_zip_redemptions_20180417.txt'
-# df_inc_red = pd.read_csv(filepath, sep='\t')
-# munge_bd_cat = MungeData()
-# row_headers = ['BROKER_NAME', 'FDS_BROKER_ID']
-# column_headers = ['FUND_CATEGORY']
-# df_bd_cat = munge_bd_cat.transform(df_inc_red, row_headers, column_headers, filepath_to_save= 'data/df_bd_cat.pkl')
-
-# df_bd_cat = pd.read_pickle('data/df_bd_cat.pkl')
-#
 c_bd_broad = Clustering(df_bd_broad.iloc[:,:-1]) # initialize clustering class
 # calculate and store dimension reductions
 c_bd_broad._PCA()
