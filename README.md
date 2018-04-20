@@ -25,9 +25,7 @@
 
 ### Dynamic Time Warp
 
-insert giphy dynamic time warp
-
-![alt_text](https://imgur.com/gallery/Qjpee)
+![](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/images/time_warp.jpg)
 
 ### Hierarchical Clustering
 
