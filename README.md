@@ -5,7 +5,7 @@
   ### 1. Can we group open-end mutual funds based on sales patterns in the last 2 years?
  **Motivation**: If I, asset manager x, can find funds similar to my own which are not currently captured by Morningstar Category relationships, I can target those funds for competition.
   
-  ### 2. Can we segment broker dealer offices into groups with similar buying behavior?
+  ### 2. Can we segment broker dealer (BD) offices into groups with similar buying behavior?
   **Motivation**: I, asset manager x, can better arm my salesforce to pursue opportunities if we have targeted strategies for each segment of the market.
     
 
@@ -32,7 +32,6 @@ Dynamic time warp is an algorithm to measure similarity between two temporal seq
 
 I used an implementation written by Pierre Rouanet: https://github.com/pierre-rouanet/dtw
 
-Examples:
 
     Dynamic Time Warp for sin vs sin: 0.0
     Dynamic Time Warp for sin vs cos: 0.04
@@ -80,16 +79,10 @@ Allocation | Alternative	| Commodities	| Convertibles |	Equity  | Fixed Income	|
 
 ### Broker Dealer Clustering by Broad Category
 
-Clusters overlayed on PCA
+BD Clusters overlayed on PCA        |  BD Clusters overlayed on t-SNE
+:-------------------------:|:-------------------------:
+![](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/images/bd_broad_inc_size_pca_kmeans.png)  |  ![](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/images/bd_broad_inc_size_tsne_kmeans.png)
 
-
-![](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/images/bd_broad_inc_size_pca_kmeans.png)
-
-
-Clusters overlayed on TSNE
-
-
-![](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/images/bd_broad_inc_size_tsne_kmeans.png)
 
 
 
