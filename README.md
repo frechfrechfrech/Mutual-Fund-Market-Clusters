@@ -45,9 +45,8 @@ I used an implementation written by Pierre Rouanet: https://github.com/pierre-ro
 
 Well-suited to situations where want to understand the relationships within clusters. For example, within this cluster, which funds are the most similar? Are there any funds that are total snowflakes?
 
-![alt_text](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/images/dendrogram_allocation.png)
+![alt_text](https://github.com/frechfrechfrech/Mutual-Fund-Market-Clusters/blob/master/images/dendrogram_allocation_scaled.png)
 
-![alt_text](https://media.giphy.com/media/zcVOyJBHYZvX2/giphy.gif "ugh")
 
 **Interpretation:**
   - Most funds are pretty similar by this metric
